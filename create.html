@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Clip</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="index.html" class="header__logo">
+        <svg
+          class="yt-icon"
+          viewBox="0 0 28 20"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <path
+            d="M27.9727 3.12324C27.6435 1.89323 26.6768 0.926623 25.4468 0.597366C23.2199 0 14 0 14 0C14 0 4.78013 0 2.55324 0.597366C1.32323 0.926623 0.356623 1.89323 0.0273657 3.12324C0 5.35013 0 10 0 10C0 10 0 14.6499 0.0273657 16.8768C0.356623 18.1068 1.32323 19.0734 2.55324 19.4026C4.78013 20 14 20 14 20C14 20 23.2199 20 25.4468 19.4026C26.6768 19.0734 27.6435 18.1068 27.9727 16.8768C28 14.6499 28 10 28 10C28 10 28 5.35013 27.9727 3.12324Z"
+            fill="#FF0000"
+          />
+          <path
+            d="M11.2 14.2857L18.4857 10L11.2 5.71429V14.2857Z"
+            fill="white"
+          />
+        </svg>
+        <span class="yt-icon__title">YTClips</span>
+      </a>
+
+      <nav class="header__nav" style="margin-left: auto;">
+        <a href="index.html" class="nav-pill">My Clips</a>
+        <a href="create.html" class="nav-pill nav-pill--active">Create Clip</a>
+      </nav>
+    </header>
+
+    <main class="main-content main-content--start">
+      <div class="form-container form-container--shadow">
+        <h2 class="form-container__title">Create New Clip</h2>
+        <form id="createForm" novalidate>
+          <div class="form-group">
+            <label for="title" class="form-group__label">Song Title</label>
+            <input type="text" id="title" class="form-group__input" required placeholder="e.g., Numb" />
+          </div>
+          <div class="form-group">
+            <label for="artist" class="form-group__label">Artist</label>
+            <input
+              type="text"
+              id="artist"
+              class="form-group__input"
+              required
+              placeholder="e.g., Linkin Park"
+            />
+          </div>
+          <div class="form-group">
+            <label for="duration" class="form-group__label">Duration (sec)</label>
+            <input
+              type="number"
+              id="duration"
+              class="form-group__input"
+              required
+              min="10"
+              placeholder="e.g., 186"
+            />
+          </div>
+          <div class="form-group">
+            <label for="views" class="form-group__label">YouTube Views</label>
+            <input
+              type="number"
+              id="views"
+              class="form-group__input"
+              required
+              min="0"
+              placeholder="e.g., 2000000000"
+            />
+          </div>
+          <div class="form-group">
+            <label for="imageUrl" class="form-group__label">Cover Image URL (optional)</label>
+            <input type="url" id="imageUrl" class="form-group__input" placeholder="https://..." />
+          </div>
+          <button type="submit" class="btn btn--primary btn--full btn--large">
+            Add Clip
+          </button>
+        </form>
+      </div>
+    </main>
+
+    <div id="modal" class="modal" style="display: none;">
+      <div class="modal__content">
+        <h2 id="modalTitle" class="modal__title">Warning</h2>
+        <p id="modalMessage" class="modal__message">Validation error</p>
+        <button id="modalClose" class="btn btn--outline btn--wide">
+          Close
+        </button>
+      </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/create.js"></script>
+  </body>
+</html>

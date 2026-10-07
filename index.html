@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Page – YT Clips</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="index.html" class="header__logo">
+        <svg
+          class="yt-icon"
+          viewBox="0 0 28 20"
+          preserveAspectRatio="xMidYMid meet"
+        >
+          <path
+            d="M27.9727 3.12324C27.6435 1.89323 26.6768 0.926623 25.4468 0.597366C23.2199 0 14 0 14 0C14 0 4.78013 0 2.55324 0.597366C1.32323 0.926623 0.356623 1.89323 0.0273657 3.12324C0 5.35013 0 10 0 10C0 10 0 14.6499 0.0273657 16.8768C0.356623 18.1068 1.32323 19.0734 2.55324 19.4026C4.78013 20 14 20 14 20C14 20 23.2199 20 25.4468 19.4026C26.6768 19.0734 27.6435 18.1068 27.9727 16.8768C28 14.6499 28 10 28 10C28 10 28 5.35013 27.9727 3.12324Z"
+            fill="#FF0000"
+          />
+          <path
+            d="M11.2 14.2857L18.4857 10L11.2 5.71429V14.2857Z"
+            fill="white"
+          />
+        </svg>
+        <span class="yt-icon__title">YTClips</span>
+      </a>
+
+      <div class="search-form">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-form__input"
+          placeholder="Search"
+          autocomplete="off"
+        />
+
+        <button
+          type="button"
+          id="btnClear"
+          class="search-form__btn search-form__btn--clear"
+          title="Clear"
+        >
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          id="btnSearch"
+          class="search-form__btn search-form__btn--submit"
+          title="Search"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            width="19"
+            height="19"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="header__nav">
+        <a href="index.html" class="nav-pill nav-pill--active">My Clips</a>
+        <a href="create.html" class="nav-pill">Create Clip</a>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <aside class="sidebar">
+        <h2 class="sidebar__title">Manage clips</h2>
+        <div class="sidebar__section">
+          <div class="sidebar__row">
+            <span class="sidebar__label">Sort by the most<br />views</span>
+            <label class="toggle">
+              <input type="checkbox" id="sortToggle" class="toggle__input" />
+              <span class="toggle__slider"></span>
+            </label>
+          </div>
+        </div>
+        <div class="sidebar__section sidebar__section--spaced">
+          <span class="sidebar__label sidebar__label--block">Total calculation:</span>
+          <button type="button" id="btnCount" class="btn btn--primary btn--full">
+            Count total views
+          </button>
+          <div id="totalBox" style="display: none;" class="sidebar__section sidebar__section--spaced">
+            <div class="sidebar__label">Total views:</div>
+            <strong id="totalValue" class="sidebar__total-value">0</strong>
+          </div>
+        </div>
+      </aside>
+
+      <section class="cards-area">
+        <div id="cardsGrid" class="cards-grid"></div>
+      </section>
+    </main>
+
+    <div id="editModal" class="modal" style="display: none;">
+      <div class="modal__content modal__content--left">
+        <h2 class="modal__title modal__title--center">Edit Clip</h2>
+        <div class="form-group">
+          <label for="editTitle" class="form-group__label">Song title:</label>
+          <input type="text" id="editTitle" class="form-group__input" />
+        </div>
+        <div class="form-group">
+          <label for="editArtist" class="form-group__label">Artist:</label>
+          <input type="text" id="editArtist" class="form-group__input" />
+        </div> 
+        <div class="form-group">
+          <label for="editDuration" class="form-group__label">Duration (sec):</label>
+          <input type="number" id="editDuration" class="form-group__input" min="1" />
+        </div>
+        <div class="form-group">
+          <label for="editViews" class="form-group__label">Views:</label>
+          <input type="number" id="editViews" class="form-group__input" min="0" />
+        </div>
+        <div class="modal__actions modal__actions--spaced">
+          <button id="saveEditBtn" class="btn btn--primary btn--wide">
+            Save
+          </button>
+          <button id="cancelEditBtn" class="btn btn--outline btn--wide">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
