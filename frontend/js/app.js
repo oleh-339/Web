@@ -46,7 +46,7 @@ function renderClips(clipsToRender) {
         </div>
       </div>
     </div>
-  `
+  `,
     )
     .join("");
   cardsGrid.insertAdjacentHTML("beforeend", html);
@@ -60,14 +60,14 @@ function applyFiltersAndRender() {
     currentClips = currentClips.filter(
       (c) =>
         c.artist.toLowerCase().replace(/\s+/g, "").includes(query) ||
-        c.title.toLowerCase().replace(/\s+/g, "").includes(query)
+        c.title.toLowerCase().replace(/\s+/g, "").includes(query),
     );
   }
 
   if (sortToggle.checked) {
     currentClips.sort((a, b) => b.views - a.views);
   }
-  
+
   renderClips(currentClips);
 }
 
@@ -89,10 +89,13 @@ btnCount.addEventListener("click", () => {
   totalBox.style.display = "block";
 });
 
-window.removeClip = function (id) {
-  clips = clips.filter((c) => c.id !== id);
-  localStorage.setItem("clips", JSON.stringify(clips));
-  applyFiltersAndRender();
+window.removeClip = async function (id) {
+  try {
+    await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+    await fetchClips();
+  } catch (error) {
+    console.error("Помилка видалення:", error);
+  }
 };
 
 window.openEditModal = function (id) {
@@ -110,17 +113,26 @@ cancelEditBtn.addEventListener("click", () => {
   editModal.style.display = "none";
 });
 
-saveEditBtn.addEventListener("click", () => {
-  const index = clips.findIndex((c) => c.id === currentEditId);
-  if (index !== -1) {
-    clips[index].artist = editArtist.value;
-    clips[index].title = editTitle.value;
-    clips[index].duration = parseInt(editDuration.value);
-    clips[index].views = parseInt(editViews.value);
-    localStorage.setItem("clips", JSON.stringify(clips));
-    applyFiltersAndRender();
+saveEditBtn.addEventListener("click", async () => {
+  const updatedData = {
+    artist: editArtist.value,
+    title: editTitle.value,
+    duration: parseInt(editDuration.value),
+    views: parseInt(editViews.value),
+  };
+
+  try {
+    await fetch(`${API_URL}/${currentEditId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedData),
+    });
+
+    editModal.style.display = "none";
+    await fetchClips();
+  } catch (error) {
+    console.error("Помилка оновлення:", error);
   }
-  editModal.style.display = "none";
 });
 
-renderClips(currentClips);
+fetchClips();

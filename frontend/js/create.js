@@ -1,3 +1,5 @@
+const API_URL = "http://localhost:3000/api/clips";
+
 const form = document.getElementById("createForm");
 const artistInput = document.getElementById("artist");
 const titleInput = document.getElementById("title");
@@ -40,8 +42,7 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
-  const newClip = {
-    id: Date.now(),
+  const newClipData = {
     artist: artistInput.value.trim(),
     title: titleInput.value.trim(),
     duration: parseInt(durationInput.value),
@@ -51,13 +52,22 @@ form.addEventListener("submit", (e) => {
       "https://images.unsplash.com/photo-1614613535808-3196b010c732?w=500&q=80",
   };
 
-  clips.push(newClip);
-  localStorage.setItem("clips", JSON.stringify(clips));
-
-  showModal(
-    "Success!",
-    `Clip "${newClip.title}" by ${newClip.artist} was successfully added to your library!`,
-    false
-  );
-  form.reset();
+  fetch("http://localhost:3000/api/clips", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(newClipData),
+  })
+    .then((response) => response.json())
+    .then((addedClip) => {
+      showModal(
+        "Success!",
+        `Clip "${addedClip.title}" by ${addedClip.artist} was successfully added to your library!`,
+        false,
+      );
+      form.reset();
+    })
+    .catch((error) => {
+      showModal("Error", "Could not connect to the server.", true);
+      console.error(error);
+    });
 });
