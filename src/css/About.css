@@ -1,0 +1,63 @@
+/* Секція "Про нас" із градієнтним фоном */
+.about-section {
+  padding: 60px 40px;
+  background: linear-gradient(180deg, var(--bg) 0%, #120e24 100%);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Контейнер для вирівнювання контенту "Про нас" */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Заголовок та бейдж секції "Про нас" (по центру) */
+.about-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+/* Сітка для 3-х інформаційних карток */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Інформаційна картка (Команда, Переваги, Технології) */
+.about-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  transition: transform 0.25s, border-color 0.25s;
+}
+
+/* Зелена рамка та підняття картки "Про нас" при наведенні */
+.about-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--green);
+}
+
+/* Іконка (емодзі) всередині картки */
+.about-icon {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+/* Заголовок всередині картки "Про нас" */
+.about-card h3 {
+  font-family: var(--font-sub);
+  font-size: 22px;
+  color: var(--text);
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+/* Текст-опис всередині картки */
+.about-card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}

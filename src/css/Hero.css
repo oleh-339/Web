@@ -1,0 +1,140 @@
+/* Головний блок Hero (перший екран з радіальним фоном) */
+.hero {
+  padding: 60px 40px;
+  background: radial-gradient(circle at 75% 30%, #1e1238, var(--bg) 70%);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Контейнер для вирівнювання контенту Hero (дві колонки: текст і відео) */
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* Фіолетовий бейдж над головним заголовком */
+.hero-badge {
+  display: inline-block;
+  background: rgba(168, 85, 247, 0.15);
+  color: var(--purple);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+/* Головний великий заголовок (H1) */
+.hero-text h1 {
+  font-family: var(--font-cyber);
+  font-size: 38px;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+/* Зелене світіння тексту "NeuroEdge EMG." у заголовку */
+.hero-text h1 span {
+  color: var(--green);
+  text-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+}
+
+/* Текст-опис під заголовком */
+.hero-text p {
+  color: var(--muted);
+  margin-bottom: 24px;
+  line-height: 1.5;
+  font-size: 16px;
+  max-width: 520px;
+}
+
+/* Блок для кнопок під описом */
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+/* Кнопка "Перейти до каталогу" */
+.hero-btn-catalog {
+  font-family: var(--font-sub);
+  font-size: 17px;
+  background: transparent;
+  color: var(--green);
+  border: 2px solid var(--green);
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.1);
+}
+
+/* Заповнення зеленим кольором кнопки при наведенні */
+.hero-btn-catalog:hover {
+  background: var(--green);
+  color: var(--bg);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+}
+
+/* Сітка для плашок з перевагами (6 карток в 2 колонки) */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 520px;
+}
+
+/* Сама плашка-перевага (з іконкою та текстом) */
+.feature-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+/* Підсвічування рамки плашки фіолетовим при наведенні */
+.feature-card:hover {
+  border-color: var(--purple);
+  transform: translateY(-2px);
+}
+
+/* Обгортка для правого блоку з відео */
+.hero-video-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Контейнер у формі телефону для відео */
+.phone-mockup {
+  width: 100%;
+  max-width: 310px;
+  aspect-ratio: 9 / 16;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  background: var(--panel);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(168, 85, 247, 0.15);
+}
+
+/* Саме відео всередині макета */
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

@@ -2,6 +2,6 @@
 
 ## Виконав: Мищишин Олег Михайлович (ІР-21)
 
-## Лабораторна робота №5 (Варіант 7)
+## Лабораторна робота №6 (Варіант 7)
 
-In the last part of working on the website you have to implement all Create/Read/Update/Delete operations which must be made via the corresponding HTTP methods in your REST API.
+Start creating your React App with a simple Home page (see the link to wireframe above). Your e-commerce app subject is about your entities from previous (3-5) works.

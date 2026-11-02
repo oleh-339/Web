@@ -1,0 +1,111 @@
+/* Головний контейнер шапки (фіксований зверху) */
+.header {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px; /* Три колонки: ліва (лого), середина (навігація), права (кошик) */
+  align-items: center;
+  padding: 12px 40px;
+  background: rgba(20, 15, 36, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: 70px;
+}
+
+/* Контейнер для кнопок дій (кошик) - притискаємо до правого краю */
+.header-actions {
+  justify-self: end;
+}
+
+/* Обгортка для логотипу (щоб картинка не вилазила) */
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Лого іконки (чи як там) */
+.logo-img {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Посилання на логотипі (щоб клік працював на всю площу) */
+.logo-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-self: start;
+  height: 100%;
+}
+
+/* Контейнер навігаційного меню (по центру) */
+.nav {
+  justify-self: center;
+  display: flex;
+  gap: 8px;
+}
+
+/* Посилання в меню (Головна, Каталог, Про нас) */
+.nav a {
+  font-family: var(--font-sub);
+  color: var(--muted);
+  margin: 0 16px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  position: relative;
+  padding: 6px 0;
+  transition: color 0.25s ease;
+}
+
+/* Лінія підкреслення під посиланням (схована за замовчуванням) */
+.nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+  transition: width 0.3s ease;
+}
+
+/* Колір тексту посилання при наведенні мишки */
+.nav a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.5);
+}
+
+/* Анімація появи зеленої лінії при наведенні */
+.nav a:hover::after {
+  width: 100%;
+}
+
+/* Кнопка кошика */
+.cart-btn {
+  font-family: var(--font-sub);
+  font-size: 16px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--green);
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: all 0.2s;
+}
+
+/* Ефект підсвічування кнопки кошика при наведенні */
+.cart-btn:hover {
+  border-color: var(--green);
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.3);
+}

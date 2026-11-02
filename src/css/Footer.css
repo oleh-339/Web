@@ -1,0 +1,80 @@
+/* Блок підвалу сторінки (Footer) */
+.footer {
+  background-color: var(--panel);
+  padding: 16px 40px;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+/* Сітка футера (Бренд зліва, Соцмережі по центру, Копірайт справа) */
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+/* Брендовий напис NeuroEdge у футері */
+.footer-brand {
+  font-family: var(--font-cyber);
+  font-size: 18px;
+  font-weight: 800;
+  justify-self: start;
+}
+
+/* Світіння частини тексту "Neuro" у футері */
+.footer-brand span {
+  color: var(--green);
+}
+
+/* Контейнер для іконок соціальних мереж */
+.footer-socials {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-self: center;
+}
+
+/* Посилання для кожної іконки соцмережі */
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.2s ease, filter 0.25s ease;
+}
+
+/* Стандартний сірий колір для SVG-іконок */
+.social-icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+  fill: #94a3b8;
+  transition: fill 0.25s ease;
+}
+
+/* Анімація підстрибування іконки при наведенні */
+.social-icon:hover {
+  transform: translateY(-2px);
+}
+
+/* Унікальні кольори для кожної соцмережі при наведенні курсору */
+.social-icon.github:hover svg { fill: #00ff88; }
+.social-icon.telegram:hover svg { fill: #229ed9; }
+.social-icon.youtube:hover svg { fill: #ff0000; }
+.social-icon.instagram:hover svg { fill: #e1306c; }
+.social-icon.x-twitter:hover svg { fill: #ffffff; }
+
+/* Спеціальний колір та тінь для TikTok при наведенні */
+.social-icon.tiktok:hover svg {
+  fill: #25f4ee;
+  filter: drop-shadow(-2px 0 0 #fe2c55);
+}
+
+/* Текст копірайту в правому куті футера */
+.footer-copyright {
+  font-size: 13px;
+  color: var(--muted);
+  justify-self: end;
+}

@@ -1,0 +1,40 @@
+/* Глобальні змінні (кольори, шрифти) */
+:root {
+  --bg: #0a0812;
+  --panel: #140f24;
+  --border: #231a3d;
+  --green: #00ff88;
+  --purple: #a855f7;
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+
+  --font-cyber: "Orbitron", sans-serif;
+  --font-sub: "Rajdhani", sans-serif;
+  --font-main: "Inter", sans-serif;
+}
+
+/* Плавна прокрутка для всієї сторінки (щоб якірні посилання гарно їздили) */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Обнулення відступів та встановлення базового шрифту для всіх елементів */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+}
+
+/* Налаштування фону сторінки та кольору тексту за замовчуванням */
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Головний контейнер додатку (щоб футер притискався донизу, якщо мало контенту) */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
