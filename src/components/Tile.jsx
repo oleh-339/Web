@@ -1,4 +1,6 @@
 import React from 'react';
+import PrimaryButton from './PrimaryButton';
+import '../css/TileSection.css';
 
 const Tile = ({ product }) => {
   return (
@@ -15,7 +17,7 @@ const Tile = ({ product }) => {
             <small>Ціна</small>
             <span>{product.price} UAH</span>
           </div>
-          <button className="buy-btn">Детальніше</button>
+          <PrimaryButton text="Детальніше" />
         </div>
       </div>
     </div>

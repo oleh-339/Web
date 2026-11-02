@@ -1,10 +1,15 @@
-import '../css/Header.css';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import '../css/Header.css'; 
 
 const Header = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <header className="header">
-      <a href="#home" className="logo-link">
+      <Link to="/" onClick={scrollToTop} className="logo-link">
         <div className="logo-wrapper">
           <img 
             src="/images/logo.png" 
@@ -12,14 +17,13 @@ const Header = () => {
             className="logo-img" 
             onError={(e) => { e.target.style.display = 'none'; }} 
           />
-          
         </div>
-      </a>
+      </Link>
 
       <nav className="nav">
-        <a href="#home">Головна</a>
-        <a href="#catalog">Каталог</a>
-        <a href="#about">Про нас</a>
+        <Link to="/" onClick={scrollToTop}>Головна</Link>
+        <Link to="/catalog" onClick={scrollToTop}>Каталог</Link>
+        <a href="/#about">Про нас</a> {/* Залишаємо якір, якщо About на головній */}
       </nav>
 
       <div className="header-actions">

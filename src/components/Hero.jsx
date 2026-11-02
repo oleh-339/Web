@@ -1,5 +1,6 @@
-import '../css/Hero.css';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import '../css/Hero.css';
 
 const Hero = () => {
     return (
@@ -14,7 +15,7 @@ const Hero = () => {
                     </p>
 
                     <div className="hero-buttons">
-                        <a href="#catalog" className="hero-btn-catalog">Перейти до каталогу ›</a>
+                        <Link to="/catalog" className="hero-btn-catalog">Перейти до каталогу ›</Link>
                     </div>
 
                     {/* Блок із 6 карточок як у Calorize */}
