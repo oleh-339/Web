@@ -132,3 +132,57 @@
   background: var(--purple);
   color: #fff;
 }
+
+/* Стилі для пошуку та випадаючого списку в каталозі */
+.catalog-filters {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.catalog-search-input {
+  padding: 10px 16px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  fontSize: 15px;
+  outline: none;
+  min-width: 260px;
+}
+
+.catalog-search-input:focus,
+.catalog-select:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 8px rgba(0, 255, 136, 0.2);
+}
+
+.catalog-select {
+  padding: 10px 20px 10px 16px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 15px;
+  outline: none;
+  cursor: pointer;
+  appearance: none; /* Прибираємо стандартну убогу системну стрілку */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* Додаємо нашу стильну стрілку у кольорі сайту */
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%2300ff88' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 18px;
+  padding-right: 40px;
+}
+
+/* Фіксуємо сітку каталогу, щоб товари не розтягувалися на весь екран */
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
+  gap: 28px;
+  justify-content: center;
+}

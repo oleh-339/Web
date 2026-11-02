@@ -2,6 +2,6 @@
 
 ## Виконав: Мищишин Олег Михайлович (ІР-21)
 
-## Лабораторна робота №6 (Варіант 7)
+## Лабораторна робота №8 (Варіант 7)
 
-Start creating your React App with a simple Home page (see the link to wireframe above). Your e-commerce app subject is about your entities from previous (3-5) works.
+Continue work on your React App by adding a page for your Item (see the link to wireframe of Item page above). Also, now, you have to make all your previous pages (Home & Catalog) more interactive.

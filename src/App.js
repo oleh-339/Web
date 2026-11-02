@@ -4,7 +4,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Catalog from './pages/Catalog';
-import './App.css'; 
+import Item from './pages/Item';
+import './App.css';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/catalog" element={<Catalog />} />
+            <Route path="/catalog/:id" element={<Item />} />
           </Routes>
         </main>
         <Footer />
