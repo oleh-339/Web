@@ -1,4 +1,3 @@
-import React from 'react';
 import TileSection from '../components/TileSection';
 
 const Catalog = () => {

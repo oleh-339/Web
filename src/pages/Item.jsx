@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { products } from '../data/products';
+import { fetchProductById } from '../api/productsApi';
+import Loader from '../components/Loader';
 
 const Item = () => {
-  const { id } = useParams(); // Отримуємо ID з URL
-  const product = products.find((p) => p.id === parseInt(id));
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    fetchProductById(id)
+      .then((data) => setProduct(data))
+      .catch((err) => console.error('Помилка завантаження товару:', err))
+      .finally(() => setLoading(false));
+  }, [id]);
+
+  if (loading) {
+    return <Loader />;
+  }
 
   if (!product) {
     return <h2 style={{ textAlign: 'center', padding: '100px', color: 'var(--text)' }}>Товар не знайдено</h2>;

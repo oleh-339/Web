@@ -1,25 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Tile from './Tile';
-import { products } from '../data/products';
+import Loader from './Loader';
+import { fetchProducts } from '../api/productsApi';
 
 const TileSection = () => {
+  const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [loading, setLoading] = useState(true);
 
-  const categories = ['All', ...new Set(products.map(p => p.category))];
+const categories = ['All', 'Wearable EMG', 'Development Kit'];
 
-  const filteredProducts = products.filter(product => {
-    const matchesSearch = product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          product.description.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesCategory = selectedCategory === 'All' || product.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
+  useEffect(() => {
+    setLoading(true);
+
+    fetchProducts(selectedCategory, searchQuery)
+      .then((data) => setProducts(data))
+      .catch((error) => console.error('Помилка завантаження товарів:', error))
+      .finally(() => setLoading(false));
+  }, [selectedCategory, searchQuery]);
 
   return (
     <section className="tile-section" id="catalog">
       <h2 className="section-title">Каталог пристроїв</h2>
 
-      {/* Панель пошуку та фільтрів */}
       <div className="catalog-filters">
         <input 
           type="text" 
@@ -42,9 +46,11 @@ const TileSection = () => {
         </select>
       </div>
 
-      {filteredProducts.length > 0 ? (
+      {loading ? (
+        <Loader />
+      ) : products.length > 0 ? (
         <div className="tile-grid">
-          {filteredProducts.map((item) => (
+          {products.map((item) => (
             <Tile key={item.id} product={item} />
           ))}
         </div>

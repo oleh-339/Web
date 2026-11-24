@@ -148,7 +148,7 @@
   border: 1px solid var(--border);
   border-radius: 8px;
   color: var(--text);
-  fontSize: 15px;
+  font-size: 15px;
   outline: none;
   min-width: 260px;
 }

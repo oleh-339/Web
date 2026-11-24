@@ -1,10 +1,17 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../css/Header.css'; 
 
 const Header = () => {
+  const navigate = useNavigate();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const scrollToAbout = (e) => {
+    e.preventDefault();
+    navigate('/');
+    setTimeout(() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }), 50);
   };
 
   return (
@@ -23,7 +30,7 @@ const Header = () => {
       <nav className="nav">
         <Link to="/" onClick={scrollToTop}>Головна</Link>
         <Link to="/catalog" onClick={scrollToTop}>Каталог</Link>
-        <a href="/#about">Про нас</a> {/* Залишаємо якір, якщо About на головній */}
+        <Link to="/#about" onClick={scrollToAbout}>Про нас</Link>
       </nav>
 
       <div className="header-actions">
